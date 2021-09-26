@@ -1,14 +1,11 @@
-<html>
-    <head></head>
-    <body>
-    </body>
+<pre>
     <script>
         class XRegExp{
             constructor(source, flag, root="root"){
                 this.table = new Map();
                 this.regexp = new RegExp(this.complieRegExp(source, root, 0).source, flag);
-                // console.log(this.regexp);
-                // console.log(this.table); 
+                console.log(this.regexp);
+                console.log(this.table); 
             }
             complieRegExp(source,name,start){
                 if(source[name] instanceof RegExp)
@@ -54,7 +51,7 @@
                 Whitespace:/ /,
                 LineTerminator:/\n/,
                 Comments:/\/\*(?:[^*]|\*[^\/])*\*\/|\/\/[^\n]*/,
-                Token:"<Literal>|<Keywords>|<Identifer>|Punctuator",
+                Token:"<Literal>|<Keywords>|<Identifer>|<Punctuator>",
                 Literal:"<NumericLiteral>|<BooleanLiteral>|<StringLiteral>|<NullLiteral>",
                 NumericLiteral:/(?:[1-9][0-9]*|0)(?:\.[0-9]*)?|\.[0-9]+/,
                 BooleanLiteral:/true|false/,
@@ -62,13 +59,13 @@
                 NullLiteral:/null/,
                 Identifer:/[a-zA-Z_$][a-zA-Z0-9_$]*/,
                 Keywords:/if|else|for|function|let|var/,
-                Punctuator:/\+|\,|\?|\:|\{|\}|\.|\(|\=|\<|\+\+|\=|\=\=|\=\>|\*|\)|\[|\]|;/
+                Punctuator:/\+|\=\>|\,|\?|\:|\{|\}|\.|\(|\=|\<|\+\+|\=\=|\=|\*|\)|\[|\]|;/
             }, "g", "InputElement")
     
             while(regexp.lastIndex < str.length){
                 let r = regexp.exec(str);
-                console.log(r[0]);
-                document.write(r);
+                console.log(r);
+                document.write(r[0]);
                 // debugger
                 if(!r[0].length){
                     break;
@@ -76,7 +73,7 @@
             } 
         }
         scan(`
-                for(let i=0;i<3;i++){
+            for(let i=0;i<3;i++){
                     for(let j=0;j<3;j++){
                         let cell = document.createElement("div");
                         cell.classList.add("cell");
@@ -89,4 +86,4 @@
                 }
             `)
     </script>
-</html>
+</pre>
