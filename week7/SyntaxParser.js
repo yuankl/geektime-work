@@ -208,5 +208,7 @@ export function parse(source) {
     console.log(symbol)
     shift(symbol)
   }
+
   return reduce()
+
 }  
